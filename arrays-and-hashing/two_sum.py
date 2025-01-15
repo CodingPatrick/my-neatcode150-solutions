@@ -1,8 +1,10 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        h = {}
+        storage = {}
         for i, num in enumerate(nums):
-            h[num] = i
+            storage[num] = i
         for i, num in enumerate(nums):
-            if target - num in h and h[target - num] != i :
-                return [i, h[target-num]]
+            diff = target - num
+            if diff in storage and storage[diff] != i:
+                return [i, storage[diff]]
+        return []

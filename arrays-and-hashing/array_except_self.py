@@ -1,11 +1,11 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        output = []
+        storage = []
         for i in range(0, len(nums)):
             nums_clone = nums.copy()
-            nums_clone.remove(nums_clone[i])
+            nums_clone.pop(i)
             product = 1
-            for j in range(0, len(nums_clone)):
+            for j in range(0, len(nums)-1):
                 product = product * nums_clone[j]
-            output.append(product)
-        return output
+            storage.append(product)
+        return storage
